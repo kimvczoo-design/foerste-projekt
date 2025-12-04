@@ -1,15 +1,20 @@
+/* Global styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: 'Parkinsans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
-  min-height: 100vh;
   background: radial-gradient(circle at top, #e0f2fe, #f1f5f9);
 }
 
+/* Card */
 .card {
   background: white;
   padding: 2.5rem 3rem;
@@ -29,7 +34,12 @@ body {
 .card p {
   font-size: 1rem;
   color: #475569;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card ul {
+  margin-left: 1rem;
+  margin-bottom: 0;
 }
 
 button {
@@ -72,13 +82,66 @@ button:hover {
   object-fit: cover;
 }
 
+/* Navigation container: full-width white bar 80px high */
+.nav-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center the nav inside the full-width container */
+  padding: 0 18px;
+  z-index: 40;
+  pointer-events: auto;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.08);
+}
+
+.site-nav {
+  display: block;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: #000000; /* pure black text */
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0 6px; /* small spacing, no background */
+  background: transparent;
+  transition: color 0.12s ease, transform 0.12s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  color: #111827;
+  transform: translateY(-2px);
+}
+
+.site-nav a:active {
+  transform: translateY(0);
+}
+
+/* Ensure overlay text doesn't block clicks to nav */
+.site-header .hero-overlay {
+  z-index: 10;
+  pointer-events: none;
+}
+
 .site-header .hero-overlay {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
 }
 
 .site-header .hero-overlay h2 {
@@ -92,6 +155,7 @@ button:hover {
   padding: 0 1rem;
 }
 
+/* Responsive fallbacks */
 @media (max-width: 520px) {
   .site-header .hero {
     max-height: 40vh;
@@ -99,4 +163,6 @@ button:hover {
   .site-header .hero-overlay h2 {
     font-size: 36px;
   }
+  .nav-container { top: 12px; padding: 0 10px; height: 56px; }
+  .site-nav a { padding: 4px 6px; font-size: 14px; }
 }
