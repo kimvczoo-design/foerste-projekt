@@ -159,6 +159,22 @@ button:hover {
   word-break: break-word;
 }
 
+/* Typewriter caret for the hero heading while typing */
+.site-header .hero-overlay h2.typing::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  background: white;
+  margin-left: 8px;
+  vertical-align: -0.15em;
+  animation: blink-caret 1s steps(2, start) infinite;
+}
+
+@keyframes blink-caret {
+  50% { opacity: 0; }
+}
+
 /* Responsive fallbacks */
 @media (max-width: 520px) {
   .site-header .hero {
