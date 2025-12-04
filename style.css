@@ -11,20 +11,37 @@ html, body {
 }
 
 body {
-  background: #ffffff;
+  background: #cf5646;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Card */
+/* Liquid background effect */
+.liquid-bg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Card (glass) positioned below the hero image */
 .card {
-  background: white;
+  background: rgba(255, 255, 255, 0.41);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.8px);
+  -webkit-backdrop-filter: blur(11.8px);
   padding: 2.5rem 3rem;
-  padding-left: 80px; /* align internal content (button) to 80px from card left */
-  border-radius: 1.5rem;
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+  padding-left: 80px; /* match requested left padding */
   text-align: left;
   width: 720px; /* fixed design width */
   max-width: 95%; /* responsive fallback for small screens */
-  margin: 1.5rem auto; /* center horizontally */
+  margin: 80px auto 80px auto; /* center card horizontally, 80px top and bottom */
+  position: relative;
+  z-index: 10;
 }
 
 .card h1 {
@@ -69,18 +86,21 @@ button:hover {
 /* Header / hero */
 .site-header {
   width: 100%;
+  height: 100vh; /* fill the browser viewport */
   position: relative;
   margin: 0 0 1.5rem 0; /* no top margin */
   padding: 0; /* ensure no top padding */
   overflow: hidden;
+  z-index: 10;
 }
 
 .site-header .hero {
-  display: block;
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
   width: 100%;
-  height: auto;
-  max-height: 60vh;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* Navigation container: full-width white bar 80px high */
@@ -95,7 +115,7 @@ button:hover {
   align-items: center;
   justify-content: center; /* center the nav inside the full-width container */
   padding: 0 18px;
-  z-index: 40;
+  z-index: 80;
   pointer-events: auto;
   box-shadow: 0 6px 20px rgba(2,6,23,0.08);
 }
@@ -133,7 +153,7 @@ button:hover {
 
 /* Ensure overlay text doesn't block clicks to nav */
 .site-header .hero-overlay {
-  z-index: 10;
+  z-index: 60;
   pointer-events: none;
   position: absolute;
   inset: 0;
@@ -188,7 +208,13 @@ button:hover {
     padding-bottom: 24px;
     justify-content: flex-start;
   }
-  .card { padding-left: 16px; }
+  /* On small screens place the card back into normal flow under the header */
+  .card {
+    position: static;
+    transform: none;
+    margin: 1.5rem auto;
+    padding-left: 16px;
+  }
   .nav-container { top: 12px; padding: 0 10px; height: 56px; }
   .site-nav a { padding: 4px 6px; font-size: 14px; }
 }
@@ -198,6 +224,8 @@ button:hover {
   width: 100%;
   text-align: center;
   padding: 12px 0;
+  position: relative;
+  z-index: 10;
 }
 .site-footer p {
   margin: 0;

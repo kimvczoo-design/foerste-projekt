@@ -10,6 +10,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <svg class="liquid-bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <filter id="blur">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+      </filter>
+    </defs>
+    <path d="M0,400 Q300,350 600,400 T1200,400 L1200,800 L0,800 Z" fill="#cf5646" filter="url(#blur)">
+      <animate attributeName="d" dur="8s" repeatCount="indefinite" 
+        values="M0,400 Q300,350 600,400 T1200,400 L1200,800 L0,800 Z;
+                M0,400 Q300,450 600,420 T1200,400 L1200,800 L0,800 Z;
+                M0,400 Q300,350 600,400 T1200,400 L1200,800 L0,800 Z" />
+    </path>
+    <path d="M0,420 Q300,380 600,420 T1200,420 L1200,800 L0,800 Z" fill="#cf5646" opacity="0.5" filter="url(#blur)">
+      <animate attributeName="d" dur="10s" repeatCount="indefinite" 
+        values="M0,420 Q300,380 600,420 T1200,420 L1200,800 L0,800 Z;
+                M0,420 Q300,470 600,440 T1200,420 L1200,800 L0,800 Z;
+                M0,420 Q300,380 600,420 T1200,420 L1200,800 L0,800 Z" />
+    </path>
+  </svg>
+
   <header class="site-header">
     <img class="hero" src="assets/IMG_5973.JPG" alt="Header image">
     <div class="nav-container">
