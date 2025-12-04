@@ -18,6 +18,7 @@ body {
 .card {
   background: white;
   padding: 2.5rem 3rem;
+  padding-left: 80px; /* align internal content (button) to 80px from card left */
   border-radius: 1.5rem;
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
   text-align: left;
@@ -134,14 +135,15 @@ button:hover {
 .site-header .hero-overlay {
   z-index: 10;
   pointer-events: none;
-}
-
-.site-header .hero-overlay {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* place overlay content at bottom-left */
+  align-items: flex-end;
+  justify-content: flex-start;
+  /* fixed 80px from the browser left and 80px from bottom */
+  padding-left: 80px;
+  padding-bottom: 80px;
 }
 
 .site-header .hero-overlay h2 {
@@ -149,10 +151,12 @@ button:hover {
   font-size: 100px;
   line-height: 1;
   margin: 0;
-  text-align: center;
+  text-align: left;
   text-shadow: none;
   font-weight: 800;
-  padding: 0 1rem;
+  padding-right: 1rem;
+  max-width: calc(100% - 160px); /* avoid overflowing when placed 80px from left */
+  word-break: break-word;
 }
 
 /* Responsive fallbacks */
@@ -163,6 +167,12 @@ button:hover {
   .site-header .hero-overlay h2 {
     font-size: 36px;
   }
+  .site-header .hero-overlay {
+    padding-left: 16px;
+    padding-bottom: 24px;
+    justify-content: flex-start;
+  }
+  .card { padding-left: 16px; }
   .nav-container { top: 12px; padding: 0 10px; height: 56px; }
   .site-nav a { padding: 4px 6px; font-size: 14px; }
 }
