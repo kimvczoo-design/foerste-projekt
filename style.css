@@ -11,7 +11,7 @@ html, body {
 }
 
 body {
-  background: radial-gradient(circle at top, #e0f2fe, #f1f5f9);
+  background: #ffffff;
 }
 
 /* Card */
@@ -165,4 +165,17 @@ button:hover {
   }
   .nav-container { top: 12px; padding: 0 10px; height: 56px; }
   .site-nav a { padding: 4px 6px; font-size: 14px; }
+}
+
+/* Footer */
+.site-footer {
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+}
+.site-footer p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400; /* regular */
+  color: #475569;
 }
