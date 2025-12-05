@@ -142,7 +142,8 @@ p {
   height: 120px;
   background-color: var(--color-white);
   z-index: 1000;
-  border-bottom: 1px solid var(--color-gray-light);
+  border-bottom: 1px solid #E5E5E5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-container {
@@ -153,11 +154,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 60px;
 }
 
 .logo {
   font-family: var(--font-headings);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 800;
   color: var(--color-black);
   flex-shrink: 0;
@@ -165,54 +167,56 @@ p {
 
 .nav-menu {
   display: flex;
-  gap: 32px;
+  gap: 48px;
   align-items: center;
   flex: 1;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
 }
 
 .nav-link {
   font-family: var(--font-headings);
-  font-size: var(--size-menu);
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   color: var(--color-black);
   transition: opacity var(--transition);
+  white-space: nowrap;
 }
 
 .nav-link:hover {
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .search-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   cursor: pointer;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .search-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 41px;
-  background-color: var(--color-gray-light);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: transparent;
   color: var(--color-black);
-  transition: background-color var(--transition);
+  transition: opacity var(--transition);
 }
 
 .search-btn:hover {
-  background-color: #e0e0e0;
+  opacity: 0.6;
 }
 
 .search-label {
-  font-size: var(--size-caption);
+  font-size: 12px;
   color: var(--color-black);
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 /* ============================================================================
