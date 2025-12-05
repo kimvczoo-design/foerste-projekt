@@ -17,25 +17,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Horizontal scroll button functionality
-const scrollLeftBtn = document.querySelector('.scroll-btn-left');
-const scrollRightBtn = document.querySelector('.scroll-btn-right');
+// Mouse drag scrolling for features grid
 const featuresGrid = document.querySelector('.features-grid');
 
-if (scrollLeftBtn && scrollRightBtn && featuresGrid) {
-  const scrollAmount = 350; // Scroll by one card width
+if (featuresGrid) {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
-  scrollLeftBtn.addEventListener('click', () => {
-    featuresGrid.scrollBy({
-      left: -scrollAmount,
-      behavior: 'smooth'
-    });
+  featuresGrid.addEventListener('mousedown', (e) => {
+    isDown = true;
+    featuresGrid.classList.add('dragging');
+    startX = e.pageX - featuresGrid.offsetLeft;
+    scrollLeft = featuresGrid.scrollLeft;
   });
 
-  scrollRightBtn.addEventListener('click', () => {
-    featuresGrid.scrollBy({
-      left: scrollAmount,
-      behavior: 'smooth'
-    });
+  featuresGrid.addEventListener('mouseleave', () => {
+    isDown = false;
+    featuresGrid.classList.remove('dragging');
+  });
+
+  featuresGrid.addEventListener('mouseup', () => {
+    isDown = false;
+    featuresGrid.classList.remove('dragging');
+  });
+
+  featuresGrid.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - featuresGrid.offsetLeft;
+    const walk = (x - startX) * 1; // Scroll speed
+    featuresGrid.scrollLeft = scrollLeft - walk;
   });
 }
