@@ -1,6 +1,8 @@
 // Mouse / touch drag scrolling for features grid
 (() => {
   const grid = document.querySelector('.features-grid');
+  const scrollbar = document.querySelector('.features-scrollbar');
+  const thumb = document.querySelector('.features-scrollbar-thumb');
   if (!grid) return;
 
   let isDown = false;
@@ -55,6 +57,22 @@
     const touch = e.touches[0];
     moveDrag(touch.clientX);
   }, { passive: true });
+
+  const syncThumb = () => {
+    if (!thumb || !scrollbar) return;
+    const ratio = grid.clientWidth / grid.scrollWidth;
+    const thumbWidth = Math.max(ratio * scrollbar.clientWidth, 40);
+    const maxScroll = grid.scrollWidth - grid.clientWidth;
+    const scrollFraction = maxScroll > 0 ? grid.scrollLeft / maxScroll : 0;
+    const maxThumbTravel = scrollbar.clientWidth - thumbWidth;
+    const translateX = scrollFraction * maxThumbTravel;
+    thumb.style.width = `${thumbWidth}px`;
+    thumb.style.transform = `translateX(${translateX}px)`;
+  };
+
+  grid.addEventListener('scroll', syncThumb);
+  window.addEventListener('resize', syncThumb);
+  syncThumb();
 })();
 
 // Smooth scroll for navigation links
@@ -77,31 +95,3 @@ buttons.forEach(button => {
     console.log('Button clicked:', this.textContent);
   });
 });
-  let startX;
-  let scrollLeft;
-
-  featuresGrid.addEventListener('mousedown', (e) => {
-    isDown = true;
-    featuresGrid.classList.add('dragging');
-    startX = e.pageX - featuresGrid.offsetLeft;
-    scrollLeft = featuresGrid.scrollLeft;
-  });
-
-  featuresGrid.addEventListener('mouseleave', () => {
-    isDown = false;
-    featuresGrid.classList.remove('dragging');
-  });
-
-  featuresGrid.addEventListener('mouseup', () => {
-    isDown = false;
-    featuresGrid.classList.remove('dragging');
-  });
-
-  featuresGrid.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - featuresGrid.offsetLeft;
-    const walk = (x - startX) * 1; // Scroll speed
-    featuresGrid.scrollLeft = scrollLeft - walk;
-  });
-}

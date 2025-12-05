@@ -71,6 +71,7 @@ body {
   line-height: var(--lh-body-base);
   color: var(--color-black);
   background-color: var(--color-white);
+  overflow-x: hidden;
 }
 
 img {
@@ -413,6 +414,14 @@ p {
   width: 100vw;
   margin-left: calc((100% - 100vw) / 2);
   overflow: visible;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.features-container::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .features-grid {
@@ -426,12 +435,13 @@ p {
   user-select: none;
   touch-action: pan-y;
   cursor: grab;
-  padding: 0 80px;
+  padding: 0 80px 8px;
   margin: 0;
 }
 
 .features-grid::-webkit-scrollbar {
-  display: none;
+  height: 0;
+  width: 0;
 }
 
 .features-grid.dragging {
@@ -449,9 +459,59 @@ p {
   gap: 24px;
 }
 
+.features-scrollbar {
+  grid-column: 1 / -1;
+  margin-top: 16px;
+  height: 10px;
+  background: #e5e5e5;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.features-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80px;
+  background: var(--color-black);
+  border-radius: 999px;
+  transform: translateX(0);
+  transition: transform 0.1s linear, width 0.1s linear;
+  pointer-events: none;
+}
+
 /* Prevent text selection while dragging */
 .feature-card * {
   user-select: none;
+}
+
+.features-scrollbar {
+  position: relative;
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 999px;
+  margin-top: 16px;
+  margin-left: 80px;
+  margin-right: 80px;
+  overflow: hidden;
+}
+
+.features-scrollbar-thumb {
+  display: none;
+  width: 0;
+  height: 0;
+  height: 100%;
+  width: 25%;
+  background-color: #b0b0b0;
+  border-radius: 999px;
+  transform: translateX(0);
+  transition: background-color 0.2s ease;
+}
+
+.features-grid.dragging + .features-scrollbar .features-scrollbar-thumb {
+  background-color: #8a8a8a;
 }
   flex-direction: column;
   gap: 24px;
