@@ -403,15 +403,20 @@ p {
 .features-container {
   grid-column: 1 / -1;
   width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.features-container::-webkit-scrollbar {
+  display: none;
 }
 
 .features-grid {
   display: flex;
-  gap: 80px;
-  overflow-x: auto;
+  gap: 48px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
   user-select: none;
   cursor: grab;
   padding: 0;
@@ -423,13 +428,9 @@ p {
   scroll-behavior: auto;
 }
 
-.features-grid::-webkit-scrollbar {
-  display: none;
-}
-
 .feature-card {
-  flex: 0 0 calc(33.333% - 55px);
-  min-width: 320px;
+  flex: 0 0 calc(50% - 24px);
+  min-width: calc(50% - 24px);
   background-color: var(--color-white);
   display: flex;
   flex-direction: column;
