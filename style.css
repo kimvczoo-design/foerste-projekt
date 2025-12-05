@@ -493,35 +493,59 @@ p {
 }
 
 /* ============================================================================
-   TESTIMONIAL SECTION
+   TESTIMONIAL SECTION (BREAKER)
    ============================================================================ */
 
 .testimonial {
-  background: linear-gradient(135deg, rgba(237, 237, 237, 0.8) 0%, rgba(237, 237, 237, 0.8) 100%);
-  padding: var(--padding-large) var(--padding-default);
   position: relative;
+  background-color: var(--color-white);
+  padding: 48px var(--padding-default);
+  overflow: hidden;
 }
 
-.testimonial-content {
+.testimonial::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/IMG_5973.JPG');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.testimonial-breaker {
+  position: relative;
+  z-index: 1;
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
-  gap: var(--padding-default);
-  align-items: center;
-  position: relative;
-  z-index: 2;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.testimonial-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 240px;
 }
 
 .testimonial-text {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   gap: 16px;
   color: var(--color-white);
+  max-width: 480px;
 }
 
 .testimonial-text h2 {
   color: var(--color-white);
+  font-size: var(--size-h2);
+  line-height: var(--lh-h2);
 }
 
 .testimonial-text p {
@@ -531,9 +555,11 @@ p {
 }
 
 .testimonial-image {
-  flex: 1;
-  min-width: 328px;
-  aspect-ratio: 1;
+  position: absolute;
+  right: var(--padding-default);
+  bottom: var(--padding-default);
+  width: 400px;
+  height: 400px;
   overflow: hidden;
 }
 
@@ -676,10 +702,16 @@ p {
     flex: 0 0 calc(50% - 8px);
   }
 
-  .platform-content,
-  .testimonial-content {
+  .platform-content {
     flex-direction: column;
     gap: 48px;
+  }
+
+  .testimonial-image {
+    position: static;
+    width: 100%;
+    height: 300px;
+    margin-top: 80px;
   }
 
   .footer-content {
