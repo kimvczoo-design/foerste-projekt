@@ -175,7 +175,7 @@ body, p { font-size: var(--font-body-regular-size); line-height: var(--font-body
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 48px;
+  gap: 24px; /* 24px spacing between heading, paragraph and button */
   box-sizing: border-box;
 }
 
@@ -183,12 +183,12 @@ body, p { font-size: var(--font-body-regular-size); line-height: var(--font-body
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin: 0; /* spacing handled by flex gap */
 }
 
 .hero-content p {
   font-size: 1.1rem;
-  margin-bottom: 2rem;
+  margin: 0; /* spacing handled by flex gap */
   line-height: 1.5;
   max-width: 500px;
 }
