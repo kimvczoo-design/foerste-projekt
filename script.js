@@ -52,12 +52,6 @@ buttons.forEach(button => {
     console.log('Button clicked:', this.textContent);
   });
 });
-
-// Mouse drag scrolling for features grid
-const featuresGrid = document.querySelector('.features-grid');
-
-if (featuresGrid) {
-  let isDown = false;
   let startX;
   let scrollLeft;
 

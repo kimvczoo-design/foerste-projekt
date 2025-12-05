@@ -392,7 +392,14 @@ p {
   padding: var(--padding-large) 0;
 }
 
-.features h2 {
+.features-wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 48px;
+  padding: 0 80px;
+}
+
+.features-wrapper h2 {
   grid-column: 1 / -1;
   margin-bottom: 80px;
   color: var(--color-black);
@@ -402,8 +409,9 @@ p {
 
 .features-container {
   grid-column: 1 / -1;
-  width: 100%;
-  overflow: visible;
+  width: 100vw;
+  margin-left: calc(-80px - ((100vw - 100%) / 2));
+  overflow: hidden;
 }
 
 .features-grid {
@@ -416,7 +424,7 @@ p {
   scrollbar-width: none;
   user-select: none;
   cursor: grab;
-  padding: 0;
+  padding: 0 80px;
   margin: 0;
 }
 
@@ -434,6 +442,9 @@ p {
   min-width: calc(50% - 24px);
   background-color: var(--color-white);
   display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
   flex-direction: column;
   gap: 24px;
 }
