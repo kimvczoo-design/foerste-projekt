@@ -154,7 +154,7 @@ body, p { font-size: var(--font-body-regular-size); line-height: var(--font-body
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent; /* remove overlay tint on hero image */
   display: flex;
   align-items: flex-end;
   align-content: flex-end;
