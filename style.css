@@ -10,11 +10,79 @@ html, body {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Parkinsans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: #1a1a1a;
   line-height: 1.6;
   background: #ffffff;
 }
+
+/* Typographic scale from design (font-size / line-height) */
+:root {
+  --font-display-size: 120px;
+  --font-display-leading: 110px;
+
+  --font-h1-size: 60px;
+  --font-h1-leading: 64px;
+
+  --font-h2-size: 48px;
+  --font-h2-leading: 52px;
+
+  --font-h3-size: 34px;
+  --font-h3-leading: 38px;
+
+  --font-h4-size: 24px;
+  --font-h4-leading: 28px;
+
+  --font-body-large-size: 22px;
+  --font-body-large-leading: 30px;
+
+  --font-body-regular-size: 18px;
+  --font-body-regular-leading: 26px;
+
+  --font-body-small-size: 14px;
+  --font-body-small-leading: 20px;
+
+  --font-subh1-size: 20px;
+  --font-subh1-leading: 38px;
+
+  --font-subh2-size: 18px;
+  --font-subh2-leading: 20px;
+
+  --font-manchet-size: 26px;
+  --font-manchet-leading: 34px;
+
+  --font-menu-size: 18px;
+  --font-button-large-size: 18px;
+  --font-button-small-size: 14px;
+  --font-caption-size: 10px;
+  --font-caption-leading: 14px;
+}
+
+/* Apply typographic scale */
+.display {
+  font-size: var(--font-display-size);
+  line-height: var(--font-display-leading);
+  font-weight: 700;
+}
+
+h1 { font-size: var(--font-h1-size); line-height: var(--font-h1-leading); font-weight: 700; }
+h2 { font-size: var(--font-h2-size); line-height: var(--font-h2-leading); font-weight: 700; }
+h3 { font-size: var(--font-h3-size); line-height: var(--font-h3-leading); font-weight: 600; }
+h4 { font-size: var(--font-h4-size); line-height: var(--font-h4-leading); font-weight: 600; }
+
+/* body sizes */
+body, p { font-size: var(--font-body-regular-size); line-height: var(--font-body-regular-leading); }
+.text-large { font-size: var(--font-body-large-size); line-height: var(--font-body-large-leading); }
+.text-small { font-size: var(--font-body-small-size); line-height: var(--font-body-small-leading); }
+
+.subh1 { font-size: var(--font-subh1-size); line-height: var(--font-subh1-leading); font-weight: 600; }
+.subh2 { font-size: var(--font-subh2-size); line-height: var(--font-subh2-leading); font-weight: 600; }
+.manchet { font-size: var(--font-manchet-size); line-height: var(--font-manchet-leading); font-weight: 700; }
+
+.nav a { font-size: var(--font-menu-size); }
+.cta-button { font-size: var(--font-button-large-size); }
+.btn-small { font-size: var(--font-button-small-size); }
+.caption { font-size: var(--font-caption-size); line-height: var(--font-caption-leading); color: #999; }
 
 /* Header */
 .header {
@@ -73,7 +141,7 @@ body {
 .hero {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 80vh;
   overflow: hidden;
 }
 
@@ -89,12 +157,26 @@ body {
   background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: flex-end;
-  padding: 4rem 2rem;
+  align-content: flex-end;
+  padding: 80px;
+  gap: 80px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1440px;
 }
 
 .hero-content {
   color: white;
-  max-width: 600px;
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  /* keep overlay providing the 80px left offset; remove extra left padding here */
+  padding: 0 300px 0 0; /* top/right/bottom/left */
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  box-sizing: border-box;
 }
 
 .hero-content h1 {
