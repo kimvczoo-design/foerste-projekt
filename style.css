@@ -248,6 +248,39 @@ body, p { font-size: var(--font-body-regular-size); line-height: var(--font-body
   text-align: center;
 }
 
+.features-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.scroll-btn {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-btn:hover {
+  border-color: #000;
+  background: #f5f5f5;
+}
+
+.scroll-btn:active {
+  background: #e0e0e0;
+}
+
 .features-grid {
   display: flex;
   gap: 2rem;
@@ -258,6 +291,7 @@ body, p { font-size: var(--font-body-regular-size); line-height: var(--font-body
   margin: 0 auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  flex: 1;
 }
 
 .features-grid::-webkit-scrollbar {
@@ -269,7 +303,7 @@ body, p { font-size: var(--font-body-regular-size); line-height: var(--font-body
   border: none;
   border-radius: 0;
   text-align: left;
-  flex: 0 0 calc(50% - 1rem);
+  flex: 0 0 calc(25% - 1.5rem);
   min-width: 350px;
 }
 

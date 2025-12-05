@@ -16,3 +16,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// Horizontal scroll button functionality
+const scrollLeftBtn = document.querySelector('.scroll-btn-left');
+const scrollRightBtn = document.querySelector('.scroll-btn-right');
+const featuresGrid = document.querySelector('.features-grid');
+
+if (scrollLeftBtn && scrollRightBtn && featuresGrid) {
+  const scrollAmount = 350; // Scroll by one card width
+
+  scrollLeftBtn.addEventListener('click', () => {
+    featuresGrid.scrollBy({
+      left: -scrollAmount,
+      behavior: 'smooth'
+    });
+  });
+
+  scrollRightBtn.addEventListener('click', () => {
+    featuresGrid.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  });
+}
