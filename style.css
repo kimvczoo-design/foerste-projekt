@@ -243,6 +243,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: kenBurns 20s ease-out infinite alternate;
 }
 
 .hero-overlay {
@@ -273,6 +274,7 @@ p {
   font-size: var(--size-display);
   line-height: var(--lh-display);
   font-weight: 700;
+  animation: fadeIn 1s ease-out forwards;
 }
 
 .hero-subtitle {
@@ -282,6 +284,30 @@ p {
   font-weight: 600;
   font-family: var(--font-body);
   width: 80%;
+  animation: fadeIn 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ken Burns slow zoom */
+@keyframes kenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
 }
 
 /* ============================================================================
@@ -665,7 +691,7 @@ p {
 }
 
 .footer-section p a {
-  text-decoration: underline;
+  text-decoration: none;
   color: var(--color-white);
 }
 
@@ -680,9 +706,9 @@ p {
   font-size: var(--size-body-base);
   line-height: var(--lh-body-base);
   color: var(--color-white);
-  text-decoration: underline;
-  border-bottom: 1px solid var(--color-white);
-  padding-bottom: 4px;
+  text-decoration: none;
+  border-bottom: none;
+  padding-bottom: 0;
   display: inline-block;
 }
 
@@ -715,7 +741,7 @@ p {
 .footer-policies a {
   font-size: var(--size-caption);
   color: var(--color-white);
-  text-decoration: underline;
+  text-decoration: none;
   border: none;
   padding: 0;
 }
