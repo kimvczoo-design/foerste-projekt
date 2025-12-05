@@ -10,120 +10,162 @@
   <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header / Navigation -->
-  <header class="header">
-    <div class="header-container">
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="navbar-container">
       <div class="logo">Baseline</div>
-      <nav class="nav">
-        <a href="#moduler">Moduler</a>
-        <a href="#design">Design</a>
-        <a href="#drift">Drift</a>
-        <a href="#om">Om Baseline</a>
+      <nav class="nav-menu">
+        <a href="#moduler" class="nav-link">Moduler</a>
+        <a href="#design" class="nav-link">Design</a>
+        <a href="#drift" class="nav-link">Drift</a>
+        <a href="#om" class="nav-link">Om Baseline</a>
       </nav>
-      <div class="search-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
-          <path d="M12 12L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+      <div class="search-container">
+        <button class="search-btn" aria-label="Søg">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 12L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <span class="search-label">Søg</span>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <img src="assets/GettyImages-2178551434.jpg" alt="Hero image">
-    <div class="hero-overlay">
+    <img src="assets/GettyImages-2178551434.jpg" alt="Hero image" class="hero-image">
+    <div class="hero-overlay"></div>
+    <div class="hero-content-wrapper">
       <div class="hero-content">
-        <h1>Fra idé til launch på få uger</h1>
-        <div class="manchet">Baseline er løsningen til virksomheder, der vil højne i markedet uden at gå på kompromis med design, teknik eller sikkerhed.</div>
-        <button class="cta-button">Book en demo</button>
+        <h1 class="hero-title">Fra idé til launch på få uger</h1>
+        <p class="hero-subtitle">Baseline er løsningen til virksomheder, der vil hurtigt i markedet uden at gå på kompromis med design, teknik eller sikkerhed.</p>
+        <button class="btn btn-primary-outline">
+          <span>Book en demo</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Section 1: About -->
+  <!-- About Section -->
   <section class="about">
-    <div class="container">
-      <h2>Baseline er en fleksibel, pålidelig og gennemtestet WordPress platform</h2>
-      <p>Med Baseline får du al komplet website opbygget efter best practice, altright til altstor modulskalabilitet og mulighederer at lassise uld med dit brand. Resultatet er et moderne, robust og skalerbar website, der kan udvikles i takt med din forretning uden under under under under under under.</p>
+    <div class="container-large">
+      <div class="about-content">
+        <h2>Baseline er en fleksibel, pålidelig og gennemtestet WordPress platform</h2>
+        <p>Med Baseline får du et komplet website opbygget efter best practice, adgang til et stort modulbibliotek og mulighed for at tilpasse sitet med dit eget brand. Resultatet er et moderne, stabilt og fremtidssikret website, der kan udbygges i takt med, at din forretning vokser uden at du skal investere tungt fra start.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Section 2: Features -->
+  <!-- Features Section -->
   <section class="features">
-    <div class="container">
+    <div class="container-large">
       <h2>Sådan fungerer det</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-image">
-            <img src="assets/IMG_5973.JPG" alt="Moduler & muligheder">
+      <div class="features-container">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-image">
+              <img src="assets/IMG_5973.JPG" alt="Moduler & muligheder">
+            </div>
+            <div class="feature-content">
+              <h3>Moduler & muligheder</h3>
+              <p>Med Baselines modulbibliotek kan du bygge sider præcis, som du ønsker det. Vælg mellem gennemtestede moduler, kombiner dem frit og udvid sitet i takt med jeres behov.</p>
+              <button class="btn btn-text-small">
+                <span>Læs mere</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
           </div>
-          <h3>Moduler & muligheder</h3>
-          <p>Med Baselines modulbibliotek kan du bygge sider præcis, som du ønsker det. Vælg mellem gennemtestede moduler, kombiner dem frit og udvid sitet i takt med jeres behov.</p>
-          <a href="#" class="read-more">Læs mere →</a>
-        </div>
-        <div class="feature-card">
-          <div class="feature-image">
-            <img src="assets/IMG_5973.JPG" alt="Designfrihed">
+          <div class="feature-card">
+            <div class="feature-image">
+              <img src="assets/IMG_5973.JPG" alt="Designfrihed">
+            </div>
+            <div class="feature-content">
+              <h3>Designfrihed</h3>
+              <p>Tilpas farver, fonte, logo og layout, så sitet matcher jeres brand. En fleksibel løsning, der giver frihed uden kompleksitet.</p>
+              <button class="btn btn-text-small">
+                <span>Læs mere</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
           </div>
-          <h3>Designfrihed</h3>
-          <p>Tilpas farver, fonte, logo og layout, så sitet matcher jeres brand. En fleksibel løsning, der giver frihed uden kompleksitet.</p>
-          <a href="#" class="read-more">Læs mere →</a>
-        </div>
-        <div class="feature-card">
-          <div class="feature-image">
-            <img src="assets/IMG_5973.JPG" alt="Drift & skalering">
+          <div class="feature-card">
+            <div class="feature-image">
+              <img src="assets/IMG_5973.JPG" alt="Drift & skalering">
+            </div>
+            <div class="feature-content">
+              <h3>Drift & skalering</h3>
+              <p>Baseline er bygget til at være stabil, hurtig og skalerbar. Start simpelt og udbyg med nye funktioner, sider og integrationer, når virksomheden vokser.</p>
+              <button class="btn btn-text-small">
+                <span>Læs mere</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
           </div>
-          <h3>Drift & skalering</h3>
-          <p>Baseline er bygget til at være stabil, hurtig og skalerbar. Start simpelt og udbyg med nye funktioner, sider og integrationer, når virksomheden vokser.</p>
-          <a href="#" class="read-more">Læs mere →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 3: Platform (Dark) -->
+  <!-- Platform Section -->
   <section class="platform">
-    <div class="container-wide">
-      <div class="platform-content">
-        <div class="platform-image">
-          <img src="assets/IMG_5973.JPG" alt="Platform screenshot">
-        </div>
-        <div class="platform-text">
-          <h2>En platform, der giver dig fuld og fremtidssikring</h2>
-          <p>Baseline kombinerer fleksibilitet fra WordPress med sikkerhed fra dedikeret hosting og er særligt udviklet til større og mindre websites. Vi håndterer alt fra migrations, til teknisk support - så du kan fokusere på forretningen.</p>
-          <button class="cta-button">Book en demo</button>
-        </div>
+    <div class="platform-content">
+      <div class="platform-image">
+        <img src="assets/IMG_5973.JPG" alt="Platform">
+      </div>
+      <div class="platform-text">
+        <h2>En platform, der giver dig fart og fremtidssikring</h2>
+        <p>Baseline kombinerer fleksibiliteten fra WordPress med faste rammer og et professionelt design. Det betyder, at du hurtigt kan komme i luften, og samtidig være sikker på, at sitet kan videreudvikles uden at starte forfra.</p>
+        <button class="btn btn-primary-outline">
+          <span>Book en demo</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Section 4: Testimonial -->
+  <!-- Testimonial Section -->
   <section class="testimonial">
-    <div class="testimonial-container">
+    <div class="testimonial-content">
       <div class="testimonial-text">
         <h2>Vi fik et professionelt website på rekordtid uden at sprænge budgettet</h2>
-        <p>Med Baseline fik vi den bedst løsning til vores behov og budgettet. Det var hurtigt, transparent og uden unødvendig pris-tag komplikationer. Hele processen var altid klar og forståeligt.</p>
-        <a href="#" class="read-more">Læs mere →</a>
+        <p>Med Baseline fik vi præcis det, vi havde brug for: et moderne website, der ser godt ud, er nemt at redigere og kan vokse med virksomheden. Processen var hurtig og enkel, og resultatet har allerede løftet vores digitale udtryk markant.</p>
+        <button class="btn btn-secondary">
+          <span>Læs mere</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
       </div>
       <div class="testimonial-image">
-        <img src="assets/IMG_5973.JPG" alt="Testimonial person">
+        <img src="assets/IMG_5973.JPG" alt="Testimonial">
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-column">
+    <div class="footer-content">
+      <div class="footer-section">
         <h3>Baseline</h3>
         <p>En fleksibel, pålidelig og gennemtestet WordPress platform</p>
       </div>
-      <div class="footer-column">
+      <div class="footer-section">
         <h3>Kontakt os</h3>
-        <p>Baseline by Creative (CCO)<br>TLF: 38 400 500<br>Email: hej@baseline.dk</p>
+        <p>Baseline by Creative ZOO<br><br>Tlf <a href="tel:38400500">38 400 500</a><br>E-mail: <a href="mailto:baseline@czoo.dk">baseline@czoo.dk</a></p>
       </div>
-      <div class="footer-column">
+      <div class="footer-section">
         <h3>Baseline</h3>
         <ul>
           <li><a href="#">Priser</a></li>
@@ -133,16 +175,19 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Baseline. All rights reserved.</p>
       <div class="footer-links">
-        <a href="#">Privatlivspolitik</a>
-        <a href="#">Handelsbetingelser</a>
-        <a href="#">Kontakt</a>
+        <p>© 2025 Copyright Baseline by Creative ZOO</p>
+        <div class="footer-policies">
+          <a href="#">Privatlivspolitik</a>
+          <a href="#">Tilgængelighedserklæring</a>
+          <a href="#">Cookiepolitik</a>
+        </div>
       </div>
       <div class="social-icons">
-        <a href="#">f</a>
-        <a href="#">in</a>
-        <a href="#">ig</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="YouTube">▶</a>
       </div>
     </div>
   </footer>
