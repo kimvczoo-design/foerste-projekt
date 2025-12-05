@@ -1,36 +1,59 @@
-// Mouse drag scrolling for features grid
-const featuresGrid = document.querySelector('.features-grid');
+// Mouse / touch drag scrolling for features grid
+(() => {
+  const grid = document.querySelector('.features-grid');
+  if (!grid) return;
 
-if (featuresGrid) {
   let isDown = false;
-  let startX;
-  let scrollLeft;
+  let startX = 0;
+  let scrollLeft = 0;
 
-  featuresGrid.addEventListener('mousedown', (e) => {
+  const startDrag = (clientX) => {
     isDown = true;
-    featuresGrid.classList.add('dragging');
-    startX = e.pageX - featuresGrid.offsetLeft;
-    scrollLeft = featuresGrid.scrollLeft;
-  });
+    grid.classList.add('dragging');
+    startX = clientX - grid.getBoundingClientRect().left;
+    scrollLeft = grid.scrollLeft;
+  };
 
-  featuresGrid.addEventListener('mouseleave', () => {
+  const endDrag = () => {
     isDown = false;
-    featuresGrid.classList.remove('dragging');
+    grid.classList.remove('dragging');
+  };
+
+  const moveDrag = (clientX) => {
+    if (!isDown) return;
+    const x = clientX - grid.getBoundingClientRect().left;
+    const walk = x - startX;
+    grid.scrollLeft = scrollLeft - walk;
+  };
+
+  grid.addEventListener('mousedown', (e) => {
+    startDrag(e.clientX);
   });
 
-  featuresGrid.addEventListener('mouseup', () => {
-    isDown = false;
-    featuresGrid.classList.remove('dragging');
-  });
+  grid.addEventListener('mouseup', endDrag);
+  grid.addEventListener('mouseleave', endDrag);
 
-  featuresGrid.addEventListener('mousemove', (e) => {
+  grid.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     e.preventDefault();
-    const x = e.pageX - featuresGrid.offsetLeft;
-    const walk = (x - startX) * 1;
-    featuresGrid.scrollLeft = scrollLeft - walk;
+    moveDrag(e.clientX);
   });
-}
+
+  // Touch support
+  grid.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    startDrag(touch.clientX);
+  }, { passive: true });
+
+  grid.addEventListener('touchend', endDrag, { passive: true });
+  grid.addEventListener('touchcancel', endDrag, { passive: true });
+
+  grid.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const touch = e.touches[0];
+    moveDrag(touch.clientX);
+  }, { passive: true });
+})();
 
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -409,9 +409,10 @@ p {
 
 .features-container {
   grid-column: 1 / -1;
-  width: 100vw;
-  margin-left: calc(-80px - ((100vw - 100%) / 2));
-  overflow: hidden;
+  position: relative;
+  width: calc(100vw - ((100vw - 100%) / 2));
+  margin-left: calc(-((100vw - 100%) / 2));
+  overflow: visible;
 }
 
 .features-grid {
@@ -443,6 +444,7 @@ p {
   background-color: var(--color-white);
   display: flex;
   flex-direction: column;
+  user-select: none;
   gap: 24px;
 }
   flex-direction: column;
