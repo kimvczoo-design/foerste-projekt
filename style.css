@@ -263,6 +263,7 @@ p {
   flex-direction: column;
   gap: 27px;
   max-width: 600px;
+  align-items: flex-start;
 }
 
 .hero-title {
@@ -502,6 +503,7 @@ p {
   flex-direction: column;
   gap: 27px;
   color: var(--color-white);
+  align-items: flex-start;
 }
 
 .platform-text h2 {
