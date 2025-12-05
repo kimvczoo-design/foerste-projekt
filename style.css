@@ -410,8 +410,8 @@ p {
 .features-container {
   grid-column: 1 / -1;
   position: relative;
-  width: calc(100vw - ((100vw - 100%) / 2));
-  margin-left: calc(-((100vw - 100%) / 2));
+  width: 100vw;
+  margin-left: calc((100% - 100vw) / 2);
   overflow: visible;
 }
 
@@ -424,6 +424,7 @@ p {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   user-select: none;
+  touch-action: pan-y;
   cursor: grab;
   padding: 0 80px;
   margin: 0;
@@ -446,6 +447,11 @@ p {
   flex-direction: column;
   user-select: none;
   gap: 24px;
+}
+
+/* Prevent text selection while dragging */
+.feature-card * {
+  user-select: none;
 }
   flex-direction: column;
   gap: 24px;

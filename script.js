@@ -27,6 +27,8 @@
   };
 
   grid.addEventListener('mousedown', (e) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
     startDrag(e.clientX);
   });
 
