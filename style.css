@@ -864,12 +864,13 @@ p {
 
   .features-grid {
     padding: 0 0 8px 0 !important;
-    gap: 48px !important;
+    gap: 16px !important;
   }
 
   .feature-card {
-    flex: 0 0 100%;
-    min-width: 100%;
+    flex: 0 0 calc(100vw - 32px);
+    min-width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
   }
 
   .footer-content {
