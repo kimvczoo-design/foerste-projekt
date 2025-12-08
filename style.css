@@ -858,12 +858,13 @@ p {
   }
 
   .features-container {
-    width: 100%;
+    width: calc(100vw - 32px);
     margin-left: 0;
+    overflow: hidden;
   }
 
   .features-grid {
-    padding: 0 0 8px 0 !important;
+    padding: 0 !important;
     gap: 16px !important;
   }
 
