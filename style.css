@@ -848,13 +848,18 @@ p {
     padding: 0 16px;
   }
 
+  .features-container {
+    width: 100%;
+    margin-left: 0;
+  }
+
   .features-grid {
-    padding: 0 0 8px 0;
+    padding: 0 0 8px 0 !important;
     gap: 48px !important;
   }
 
   .feature-card {
-    flex: 0 0 calc(100% - 0px);
+    flex: 0 0 100%;
     min-width: 100%;
   }
 
