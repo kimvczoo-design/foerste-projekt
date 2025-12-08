@@ -844,13 +844,18 @@ p {
     padding: 40px var(--padding-default);
   }
 
-  .feature-card {
-    flex: 0 0 calc(100% - 0px);
-    min-width: 100%;
+  .features-wrapper {
+    padding: 0 16px;
   }
 
   .features-grid {
+    padding: 0 0 8px 0;
     gap: 48px !important;
+  }
+
+  .feature-card {
+    flex: 0 0 calc(100% - 0px);
+    min-width: 100%;
   }
 
   .footer-content {
