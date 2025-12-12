@@ -588,7 +588,7 @@ p {
 
 .breaker {
   position: relative;
-  background-image: url('assets/Tekst + medie/Variant3.jpg');
+  background-image: url('assets/Variant3.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1145,7 +1145,7 @@ p {
     order: -1;
     width: 100%;
     height: 300px;
-    background-image: url('assets/Tekst + medie/Variant3.jpg');
+    background-image: url('assets/Variant3.jpg');
     background-size: cover;
     background-position: center;
   }
