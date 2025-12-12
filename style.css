@@ -223,6 +223,178 @@ p {
   letter-spacing: 0.5px;
 }
 
+/* Desktop Submenu */
+.nav-item-with-submenu {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px 0;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.nav-item-with-submenu:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.submenu-link {
+  display: block;
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-black);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.submenu-link:hover {
+  background-color: var(--color-gray-light);
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 1;
+}
+
+.menu-toggle.active .hamburger-icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.close-icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.menu-toggle.active .close-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.hamburger-line {
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-black);
+}
+
+.close-line {
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-black);
+  top: 50%;
+  left: 50%;
+}
+
+.close-line:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-line:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-white);
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  padding-top: 120px;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 24px;
+  gap: 32px;
+}
+
+.mobile-menu-link {
+  font-family: var(--font-headings);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-black);
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.mobile-menu-link:hover {
+  opacity: 0.6;
+}
+
+.mobile-menu-item-with-submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 24px;
+}
+
+.mobile-submenu-link {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-black);
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.mobile-submenu-link:hover {
+  opacity: 0.6;
+}
+
 /* ============================================================================
    HERO SECTION
    ============================================================================ */
@@ -408,6 +580,80 @@ p {
   line-height: var(--lh-body-base);
   color: var(--color-black);
   max-width: 100%;
+}
+
+/* ============================================================================
+   BREAKER SECTION
+   ============================================================================ */
+
+.breaker {
+  position: relative;
+  background-image: url('assets/Tekst + medie/Variant3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 0;
+}
+
+.breaker::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(268.598deg, rgba(0, 0, 0, 0) 35.162%, rgba(0, 0, 0, 0.5) 65.303%);
+}
+
+.breaker-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 48px;
+}
+
+.breaker-container > * {
+  grid-column: 1 / 7;
+}
+
+.breaker-container .breaker-title {
+  margin-bottom: 192px;
+}
+
+.breaker-title {
+  font-family: var(--font-headings);
+  font-size: var(--size-h2);
+  line-height: var(--lh-h2);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.breaker-content {
+  grid-column: 1 / 7;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.breaker-quote {
+  font-family: var(--font-body);
+  font-size: var(--size-body-base);
+  line-height: var(--lh-body-base);
+  font-weight: 400;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.btn-breaker {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: none;
+  align-self: flex-start;
+}
+
+.btn-breaker:hover {
+  opacity: 0.9;
 }
 
 /* ============================================================================
@@ -836,6 +1082,14 @@ p {
     display: none;
   }
 
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    z-index: 1001;
+  }
+
   .hero {
     margin-top: 80px;
   }
@@ -872,6 +1126,56 @@ p {
     flex: 0 0 calc(100vw - 32px);
     min-width: calc(100vw - 32px);
     max-width: calc(100vw - 32px);
+  }
+
+  .breaker {
+    background-image: none;
+    background-color: var(--color-black);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .breaker::before {
+    display: none;
+  }
+
+  .breaker::after {
+    content: '';
+    order: -1;
+    width: 100%;
+    height: 300px;
+    background-image: url('assets/Tekst + medie/Variant3.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .breaker-container {
+    padding: 40px 16px;
+    max-width: 100%;
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .breaker-container > * {
+    grid-column: auto;
+  }
+
+  .breaker-container .breaker-title {
+    margin-bottom: 0;
+  }
+
+  .breaker-content {
+    grid-column: auto;
+  }
+
+  .breaker-title {
+    color: var(--color-white);
+  }
+
+  .breaker-quote {
+    color: var(--color-white);
   }
 
   .footer-content {
