@@ -1491,29 +1491,12 @@ p {
   margin-top: 120px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #001a3d 0%, #003366 50%, #0066cc 100%);
+  background: linear-gradient(40deg, #020719, #0a63fa);
 }
 
 .banner-alternative::before {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #0a2540;
-  background-image: 
-    radial-gradient(circle at 52% 73%, hsla(210, 100%, 30%, 1) 0px, transparent 50%),
-    radial-gradient(circle at 0% 30%, hsla(210, 90%, 40%, 1) 0px, transparent 50%),
-    radial-gradient(circle at 41% 26%, hsla(220, 85%, 35%, 1) 0px, transparent 50%),
-    radial-gradient(circle at 41% 51%, hsla(200, 80%, 45%, 1) 0px, transparent 50%),
-    radial-gradient(circle at 41% 88%, hsla(215, 75%, 33%, 1) 0px, transparent 50%),
-    radial-gradient(circle at 76% 73%, hsla(205, 70%, 38%, 1) 0px, transparent 50%),
-    radial-gradient(circle at 29% 37%, hsla(225, 80%, 30%, 1) 0px, transparent 50%);
-  background-size: 100% 100%;
-  filter: blur(80px);
-  animation: moveBackground 12s ease-in-out infinite;
-  z-index: 1;
+  display: none;
 }
 
 .banner-alternative::after {
@@ -1521,39 +1504,134 @@ p {
   display: none;
 }
 
-@keyframes moveBackground {
-  0% { 
-    background-size: 100% 100%;
+.gradient-bg-banner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.gradient-bg-banner svg {
+  display: none;
+}
+
+.gradient-bg-banner .gradients-container {
+  filter: url(#goo) blur(40px);
+  width: 100%;
+  height: 100%;
+}
+
+.gradient-bg-banner .g1 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(2, 1, 21, 0.8) 0, rgba(2, 1, 21, 0) 50%) no-repeat;
+  mix-blend-mode: hard-light;
+  width: 80%;
+  height: 80%;
+  top: calc(50% - 40%);
+  left: calc(50% - 40%);
+  transform-origin: center center;
+  animation: moveVertical 30s ease infinite;
+  opacity: 1;
+}
+
+.gradient-bg-banner .g2 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(50, 150, 255, 0.8) 0, rgba(50, 150, 255, 0) 50%) no-repeat;
+  mix-blend-mode: hard-light;
+  width: 80%;
+  height: 80%;
+  top: calc(50% - 40%);
+  left: calc(50% - 40%);
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+  opacity: 1;
+}
+
+.gradient-bg-banner .g3 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(100, 180, 255, 0.8) 0, rgba(100, 180, 255, 0) 50%) no-repeat;
+  mix-blend-mode: hard-light;
+  width: 80%;
+  height: 80%;
+  top: calc(50% - 40% + 200px);
+  left: calc(50% - 40% - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 40s linear infinite;
+  opacity: 1;
+}
+
+.gradient-bg-banner .g4 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(0, 80, 180, 0.8) 0, rgba(0, 80, 180, 0) 50%) no-repeat;
+  mix-blend-mode: hard-light;
+  width: 80%;
+  height: 80%;
+  top: calc(50% - 40%);
+  left: calc(50% - 40%);
+  transform-origin: calc(50% - 200px);
+  animation: moveHorizontal 40s ease infinite;
+  opacity: 0.7;
+}
+
+.gradient-bg-banner .g5 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(30, 100, 200, 0.8) 0, rgba(30, 100, 200, 0) 50%) no-repeat;
+  mix-blend-mode: hard-light;
+  width: 160%;
+  height: 160%;
+  top: calc(50% - 80%);
+  left: calc(50% - 80%);
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveInCircle 20s ease infinite;
+  opacity: 1;
+}
+
+.gradient-bg-banner .interactive {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(70, 130, 220, 0.8) 0, rgba(70, 130, 220, 0) 50%) no-repeat;
+  mix-blend-mode: hard-light;
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  opacity: 0.7;
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
   }
-  10% { 
-    background-size: 120% 85%;
+  50% {
+    transform: rotate(180deg);
   }
-  20% { 
-    background-size: 175% 130%;
+  100% {
+    transform: rotate(360deg);
   }
-  30% { 
-    background-size: 130% 105%;
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
   }
-  40% { 
-    background-size: 145% 115%;
+  50% {
+    transform: translateY(50%);
   }
-  50% { 
-    background-size: 165% 95%;
+  100% {
+    transform: translateY(-50%);
   }
-  60% { 
-    background-size: 200% 75%;
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
   }
-  70% { 
-    background-size: 110% 55%;
+  50% {
+    transform: translateX(50%) translateY(10%);
   }
-  80% { 
-    background-size: 125% 75%;
-  }
-  90% { 
-    background-size: 115% 90%;
-  }
-  100% { 
-    background-size: 100% 100%;
+  100% {
+    transform: translateX(-50%) translateY(-10%);
   }
 }
 
